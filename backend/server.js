@@ -5,7 +5,17 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-app.use(cors());
+const cors = require('cors');
+
+// Update CORS to allow requests from Vercel frontend
+const corsOptions = {
+  origin: "https://local-recycling-pickup-scheduler-vfl2.vercel.app/", // Replace with your Vercel frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // Connect to MongoDB

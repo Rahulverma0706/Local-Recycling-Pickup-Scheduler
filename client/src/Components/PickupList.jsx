@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ScheduleForm from "./ScheduleForm";
+import process from "process";
+process.config()
 
 function PickupList() {
   const [pickups, setPickups] = useState([]);
 
   const fetchPickups = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/pickups");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/pickups`);
       setPickups(response.data);
     } catch (error) {
       console.error("Error fetching pickups:", error);

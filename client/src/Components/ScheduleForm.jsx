@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import process from "process";
+process.config()
 function ScheduleForm({ addPickup }) {
   const [form, setForm] = useState({
     name: "", address: "", type: "", date: "", time: ""
@@ -13,7 +14,8 @@ function ScheduleForm({ addPickup }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/schedule", form);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/schedule`, form);
+
       alert("Pickup scheduled!");
       addPickup(response.data); // Add the new pickup from the backend response
       setForm({ name: "", address: "", type: "", date: "", time: "" });
