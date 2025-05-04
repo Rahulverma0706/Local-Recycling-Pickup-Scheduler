@@ -9,7 +9,7 @@ function PickupList() {
 
   const fetchPickups = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/pickups`);
+      const response = await axios.get(`https://local-recycling-pickup-scheduler.onrender.com/pickups`);
       setPickups(response.data);
     } catch (error) {
       console.error("Error fetching pickups:", error);
