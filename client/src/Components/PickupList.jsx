@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ScheduleForm from "./ScheduleForm";
-import process from "process";
-process.config()
+
 
 function PickupList() {
   const [pickups, setPickups] = useState([]);

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import process from "process";
-process.config()
+
 function ScheduleForm({ addPickup }) {
   const [form, setForm] = useState({
     name: "", address: "", type: "", date: "", time: ""
